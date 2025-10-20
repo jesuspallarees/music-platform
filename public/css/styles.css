@@ -5,9 +5,13 @@
 }
 
 header{
-    background-color: #222;
+    background-color: lightblue;
 }
 
 img{
     width: 5rem;
+}
+
+.error{
+    color: red;
 }

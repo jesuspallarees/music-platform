@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifas <?php $preparado_cabecera ?></title>
-</head>
+<html lang="es">
+
+<?php require dirname(__DIR__) . '/includes/head.php'?>
+
 <body>
     <h1>Estoy en tarifas</h1>
 </body>

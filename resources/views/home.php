@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home <?= $preparado_cabecera?></title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+<html lang="es">
+    <?php require dirname(__DIR__) . '/includes/head.php'?>
 <body>
     <?php require dirname(__DIR__) . '/includes/header.php'?>
 </body>
