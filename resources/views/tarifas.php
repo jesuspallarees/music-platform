@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home <?= $preparado_cabecera?></title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Tarifas <?php $preparado_cabecera ?></title>
 </head>
 <body>
-    <?php require dirname(__DIR__) . '/includes/header.php'?>
+    <h1>Estoy en tarifas</h1>
 </body>
 </html>

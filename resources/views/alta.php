@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home <?= $preparado_cabecera?></title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
 </head>
 <body>
-    <?php require dirname(__DIR__) . '/includes/header.php'?>
+    <h1>Estoy en alta</h1>
 </body>
 </html>

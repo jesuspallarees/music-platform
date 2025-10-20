@@ -1,9 +1,7 @@
 <nav>
     <ul>
-        <a href=""><li>Página 1</li></a>
-        <a href=""><li>Página 2</li></a>
-        <a href=""><li>Página 3</li></a>
-        <a href=""><li>Página 4</li></a>
-        <a href=""><li>Página 5</li></a>
+        <a href="/"><li>Home</li></a>
+        <a href="/alta"><li>Alta</li></a>
+        <a href="/tarifas"><li>Tarifas</li></a>
     </ul>
 </nav>
