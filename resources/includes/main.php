@@ -1,21 +1,23 @@
 <main>
-    <h1>Esto será mi main</h1
     <?php
-        function leer_json(string $json): array{
-            $contenido = file_get_contents($json);
-            $datos = json_decode($contenido, true);
-            $articulos = [];
-            foreach($datos as $articulo){
-                $articulos[] = new Articulo($articulo['codigo'], $articulo['nombre'], $articulo['precio']);
-            }
-
-            return $articulos;
+    function leer_json(string $ruta_json): array
+    {
+        $contenido = file_get_contents($ruta_json);
+        $datos = json_decode($contenido, true);
+        if ($datos === null) {
+            return [];
         }
+        return $datos;
+    }
 
-        $ruta_json_articulos = dirname(__DIR__) . "/bbdd/tarifas.json";
-        $articulos = leer_json($ruta_json_articulos);
-        
-        foreach ($articulos as $articulo) {     
+    $ruta_json_tarifas = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "bbdd" . DIRECTORY_SEPARATOR . "tarifas.json";
+    $tarifas = leer_json($ruta_json_tarifas);
+
+    if (count($tarifas) != 0) {
+        foreach ($tarifas as $tarifa) {
         }
+    }else{
+        echo "<h3>No hay tarifas disponibles para mostrar</h3>";
+    }
     ?>
 </main>

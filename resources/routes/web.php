@@ -10,8 +10,7 @@ $lista_blanca = [
 
 ];
 
-$estructura_carpetas = dirname(__DIR__) . '/views/';
-
+$estructura_carpetas = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR;
 if (array_key_exists($peticion, $lista_blanca)) {
     require $estructura_carpetas . $lista_blanca[$peticion];
     $titulo_necesitado = $lista_blanca["$peticion"];

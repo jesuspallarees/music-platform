@@ -1,17 +1,46 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    background-color: lightblue;
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "hd hd hd hd hd"
+    "as ma ma ma ma"
+    "as ma ma ma ma"
+    "as ma ma ma ma"
+    "fo fo fo fo fo";
+  gap: 0;
+  margin: 0;
+  padding: 0;
 }
 
-img{
-    width: 5rem;
+header {
+  grid-area: hd;
+  background: lightblue;
+}
+aside {
+  grid-area: as;
+  background: lightgreen;
+}
+main {
+  grid-area: ma;
+  background: lightcoral;
+}
+footer {
+  grid-area: fo;
+  background: lightgray;
 }
 
-.error{
-    color: red;
+img {
+  max-width: 100px;
+  height: auto;
+}
+
+.error {
+  color: red;
 }

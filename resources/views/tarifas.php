@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php require dirname(__DIR__) . '/includes/head.php'?>
+    <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'head.php' ?>
 
 <body>
     <h1>Estoy en tarifas</h1>
