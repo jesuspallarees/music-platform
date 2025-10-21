@@ -23,17 +23,29 @@ header {
   grid-area: hd;
   background: lightblue;
 }
+
 aside {
   grid-area: as;
   background: lightgreen;
 }
+
 main {
   grid-area: ma;
   background: lightcoral;
 }
+
 footer {
   grid-area: fo;
   background: lightgray;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  background: #fff;
 }
 
 img {

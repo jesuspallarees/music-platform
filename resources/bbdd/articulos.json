@@ -1,0 +1,13 @@
+    [
+        {
+            "imagen": "concierto-articulo.png",
+            "titulo": "Concierto en Vivo: Una Noche Inolvidable con Tus Artistas Favoritos",
+            "contenido": "Hemos añadido nuevas canciones a nuestra biblioteca."
+        }
+        ,
+        {
+            "imagen": "apertura-articulo.png",
+            "titulo": "Concierto en vivo este fin de semana",
+            "contenido": "Únete a nosotros para un concierto en vivo con tus artistas favoritos."
+        }
+    ]

@@ -82,7 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-function leer_json(string $ruta_json): array {
+function leer_json(string $ruta_json): array
+{
     $contenido = file_get_contents($ruta_json);
     $datos = json_decode($contenido, true);
     if ($datos === null) {
@@ -91,7 +92,8 @@ function leer_json(string $ruta_json): array {
     return $datos;
 }
 
-function escribir_json_tarifa(string $ruta_json, Tarifa $tarifa): void {
+function escribir_json_tarifa(string $ruta_json, Tarifa $tarifa): void
+{
     $tarifas = leer_json($ruta_json);
     $tarifas[] = (array) $tarifa;
     file_put_contents($ruta_json, json_encode($tarifas, JSON_PRETTY_PRINT));
@@ -159,6 +161,7 @@ function calculo_precio_meses(string $tarifa, string $rebaja): array
             <input type="submit" value="Enviar">
         </form>
     </main>
+    <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'aside.php' ?>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>
 
 </body>
