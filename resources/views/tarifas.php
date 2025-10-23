@@ -1,5 +1,5 @@
 <?php
-$ruta_json_tarifas = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "bbdd" . DIRECTORY_SEPARATOR . "tarifas.json";
+$tarifa_int = 1;
 $tarifas = leer_json($ruta_json_tarifas);
 $tarifas_indice = [];
 
@@ -20,16 +20,6 @@ if (isset($_GET["tarifa"])) {
         $tarifa_int;
     }
 }
-
-function leer_json(string $ruta_json): array
-{
-    $contenido = file_get_contents($ruta_json);
-    $datos = json_decode($contenido, true);
-    if ($datos === null) {
-        return [];
-    }
-    return $datos;
-}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +28,6 @@ function leer_json(string $ruta_json): array
 
 <body>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
-    <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'aside.php' ?>
     <main>
         <div class="botonera">
             <form method="get">
@@ -74,24 +63,29 @@ function leer_json(string $ruta_json): array
             $precio_meses = $tarifas_indice[$indice_tarifa]['precio_meses'];
             $ruta_imagen = "/imgs/usuario/{$tarifas_indice[$indice_tarifa]['imagen']}";
             echo "<div class='datos-usuario'>";
-            
-            echo "<img src='{$ruta_imagen}' alt='imagen-tarifa'>";
+
+            echo "<img src='{$ruta_imagen}' alt='imagen-tarifa'><br/>";
             echo "Nombre de usuario: " . $tarifas_indice[$indice_tarifa]["nombre_usuario"] . "<br/>";
             echo "Email de usuario: " . $tarifas_indice[$indice_tarifa]["email"] . "<br/>";
             echo "Código: " . $tarifas_indice[$indice_tarifa]["codigo"] . "<br/>";
             echo "Fecha de alta: " . $tarifas_indice[$indice_tarifa]["fecha_alta"] . "<br/>";
             echo "Fecha de baja: " . $tarifas_indice[$indice_tarifa]["fecha_baja"] . "<br/>";
-            echo "Tarifa base: " . $tarifas_indice[$indice_tarifa]["tarifa"] . "<br/>";
-            echo "Máxima rebaja: " . $tarifas_indice[$indice_tarifa]["max_rebaja"] . "<br/>";
-            
+            echo "Tarifa base: " . $tarifas_indice[$indice_tarifa]["tarifa"] . "€<br/>";
+            echo "Máxima rebaja: " . $tarifas_indice[$indice_tarifa]["max_rebaja"] . "%<br/>";
             echo "<h4>Precio por mes:</h4>";
             echo '<table style="border: 2px solid black; border-collapse: collapse;">';
+
+            echo '<tr>';
             foreach ($precio_meses as $indice => $precio_mes) {
-                echo '<tr style="background-color: #f2f2f2;">';  
-                echo '<td style="border: 1px solid black; padding: 5px;">' . $indice . '</td>'; 
-                echo '<td style="border: 1px solid black; padding: 5px;">' . $precio_mes . '</td>';
-                echo '</tr>';
+                echo '<th style="background-color: #f2f2f2; border: 1px solid black; padding: 5px;">' . $indice . '</th>';
             }
+            echo '</tr>';
+            echo '<tr>';
+            foreach ($precio_meses as $indice => $precio_mes) {
+                echo '<td style="border: 1px solid black; padding: 5px; text-align: center;">' . $precio_mes . '</td>';
+            }
+            echo '</tr>';
+
             echo '</table>';
         }
         ?>

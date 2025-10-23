@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Figtree', sans-serif;
 }
 
-body {
+#home {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -13,6 +16,21 @@ body {
     "as ma ma ma ma"
     "as ma ma ma ma"
     "as ma ma ma ma"
+    "fo fo fo fo fo";
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "hd hd hd hd hd"
+    "ma ma ma ma ma"
+    "ma ma ma ma ma"
+    "ma ma ma ma ma"
     "fo fo fo fo fo";
   gap: 0;
   margin: 0;
@@ -34,6 +52,11 @@ main {
   background: lightcoral;
 }
 
+#home {
+  grid-area: ma;
+  background: lightcoral;
+}
+
 footer {
   grid-area: fo;
   background: lightgray;
@@ -41,16 +64,15 @@ footer {
 
 article {
   display: flex;
-  flex-direction: row;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #000;
+  flex-direction: column;
+  width: 300px; 
   background: #fff;
+  padding: 10px;
 }
 
 img {
-  max-width: 100px;
-  height: auto;
+  width: 150px;
+  height: 150px;
 }
 
 table {
@@ -74,4 +96,13 @@ td{
 
 .datos-usuario{
 
+}
+
+.popup{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 10px;
+  padding: 30px;
+  background-color: #fff;
 }

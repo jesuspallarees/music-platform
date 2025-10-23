@@ -3,6 +3,8 @@ if (preg_match('/^\/alta/', $_SERVER["REQUEST_URI"])) {
     $nombre_pagina = "Alta de tarifas";
 } else if (preg_match('/^\/tarifas.*$/', $_SERVER["REQUEST_URI"])) {
     $nombre_pagina = "Tarifas";
+} else if (preg_match('/^\/generador/', $_SERVER["REQUEST_URI"])) {
+    $nombre_pagina = "Generador de tarifas";
 } else if (preg_match('/^\/.*$/', $_SERVER["REQUEST_URI"])) {
     $nombre_pagina = "Home";
 }

@@ -76,7 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $no_errores = false;
     if (count($errores) === 0) {
-        $ruta_json_tarifas = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "bbdd" . DIRECTORY_SEPARATOR . "tarifas.json";
         $precio_meses = calculo_precio_meses($tarifa, $max_rebaja);
         $tarifa = new Tarifa($codigo, $fecha_alta, $fecha_baja, $cantidad, $usuario, $email, $nombre_archivo_nuevo, $tarifa, $max_rebaja, $precio_meses);
         escribir_json_tarifa($ruta_json_tarifas, $tarifa);
@@ -84,38 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }else{
         $no_errores = false;
     }   
-}
-
-function leer_json(string $ruta_json): array
-{
-    $contenido = file_get_contents($ruta_json);
-    $datos = json_decode($contenido, true);
-    if ($datos === null) {
-        return [];
-    }
-    return $datos;
-}
-
-function escribir_json_tarifa(string $ruta_json, Tarifa $tarifa): void
-{
-    $tarifas = leer_json($ruta_json);
-    $tarifas[] = (array) $tarifa;
-    file_put_contents($ruta_json, json_encode($tarifas, JSON_PRETTY_PRINT));
-}
-
-function calculo_precio_meses(string $tarifa, string $rebaja): array
-{
-    $tarifa_int = intval($tarifa);
-    $rebaja_int = intval($rebaja);
-    $precios = [];
-
-    for ($i = 1; $i <= 24; $i++) {
-        $rebaja_mes = ($rebaja_int / 24) * $i;
-        $precio_actual = $tarifa_int * (1 - $rebaja_mes / 100);
-        $precios[$i] = round($precio_actual, 2);
-    }
-
-    return $precios;
 }
 ?>
 
@@ -166,7 +133,6 @@ function calculo_precio_meses(string $tarifa, string $rebaja): array
             <input type="submit" value="Enviar">
         </form>
     </main>
-    <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'aside.php' ?>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>
 </body>
 

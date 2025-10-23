@@ -7,7 +7,7 @@ $lista_blanca = [
     '/' => 'home.php',
     '/alta' => 'alta.php',
     '/tarifas' => 'tarifas.php',
-
+    '/generador' => 'generador.php'
 ];
 
 $estructura_carpetas = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR;

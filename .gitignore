@@ -1,2 +1,3 @@
-/public/imgs/usuario/
-/resources/bbdd/*.json
+public/imgs/usuario/
+resources/bbdd/*.json
+.gitignore
