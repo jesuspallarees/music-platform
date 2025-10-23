@@ -74,12 +74,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errores['error_rebaja'] = "Debe establecer una rebaja máxima de 0 a 100 (%)";
     }
 
+    $no_errores = false;
     if (count($errores) === 0) {
         $ruta_json_tarifas = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "bbdd" . DIRECTORY_SEPARATOR . "tarifas.json";
         $precio_meses = calculo_precio_meses($tarifa, $max_rebaja);
-        $tarifa = new Tarifa($codigo, $fecha_alta, $fecha_baja, $cantidad, $usuario, $email, $imagen, $tarifa, $max_rebaja, $precio_meses);
+        $tarifa = new Tarifa($codigo, $fecha_alta, $fecha_baja, $cantidad, $usuario, $email, $nombre_archivo_nuevo, $tarifa, $max_rebaja, $precio_meses);
         escribir_json_tarifa($ruta_json_tarifas, $tarifa);
-    }
+        $no_errores = true;
+    }else{
+        $no_errores = false;
+    }   
 }
 
 function leer_json(string $ruta_json): array
@@ -123,6 +127,7 @@ function calculo_precio_meses(string $tarifa, string $rebaja): array
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
     <main>
         <form action="/alta" method="post" enctype="multipart/form-data">
+            <?php if(isset($no_errores) && $no_errores) echo "<p class='no-error'>Se ha procesado de forma correcta el alta de la tarifa</p>"?>
             <label for="codigo">Código:</label><br />
             <?php if (isset($errores["error_codigo"])) echo "<p class='error'> {$errores['error_codigo']}</p>" ?>
             <input type="text" name="codigo" id="codigo"><br />
@@ -163,7 +168,6 @@ function calculo_precio_meses(string $tarifa, string $rebaja): array
     </main>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'aside.php' ?>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>
-
 </body>
 
 </html>

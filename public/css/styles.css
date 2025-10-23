@@ -53,6 +53,25 @@ img {
   height: auto;
 }
 
+table {
+
+}
+
+tr {
+
+}
+
+td{
+
+}
 .error {
   color: red;
+}
+
+.no-error {
+  color: green;
+}
+
+.datos-usuario{
+
 }
