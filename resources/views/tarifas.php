@@ -99,7 +99,7 @@ if (count($tarifas) === 0) {
             echo '<table>';
             echo '<tr>';
             foreach ($precio_meses as $indice => $precio_mes) {
-                echo '<th style="background-color: #f2f2f2; border: 1px solid black; padding: 5px;">' . $indice . '</th>';
+                echo '<th>' . $indice . '</th>';
             }
             echo '</tr>';
             echo '<tr>';

@@ -66,10 +66,10 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
             }
 
             if (!$hay_tarifas) {
-                echo "<p>No hay tarifas disponibles dentro del presupuesto de €" . number_format($presupuesto, 2) . ".</p>";
+                echo "<h2>No hay tarifas disponibles dentro del presupuesto de €" . number_format($presupuesto, 2) . ". </h2>";
             }
             ?>
-            <p><a href="/generador">Volver</a></p>
+            <button><a href="/generador">Volver</a></button>
         <?php endif; ?>
     </main>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>

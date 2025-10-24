@@ -1,5 +1,6 @@
 <header>
-    <a href="/"><img src="/imgs/logo-mustreaming.png" alt="logo-mustreaming"></a>
+    <a href="/"><img src="/imgs/logo-mustreaming.png" alt="logo-mustreaming" id="logo"></a>
+    <div class="navegacion">
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'navigation.php'; ?>
     <?php
     if (preg_match('/^\/tarifas.*$/', $_SERVER["REQUEST_URI"])) {
@@ -17,4 +18,5 @@
             </select>
         </form>
     <?php } ?>
+    </div>
 </header>
