@@ -93,42 +93,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
     <main>
-        <form action="/alta" method="post" enctype="multipart/form-data">
+        <form action="/alta" method="post" enctype="multipart/form-data" id="alta">
             <?php if(isset($no_errores) && $no_errores) echo "<p class='no-error'>Se ha procesado de forma correcta el alta de la tarifa</p>"?>
-            <label for="codigo">Código:</label><br />
+            <label for="codigo">Código:</label>
             <?php if (isset($errores["error_codigo"])) echo "<p class='error'> {$errores['error_codigo']}</p>" ?>
-            <input type="text" name="codigo" id="codigo"><br />
+            <input type="text" name="codigo" id="codigo">
 
             <?php if (isset($errores["error_fecha_menor"])) echo "<p class='error'> {$errores['error_fecha_menor']}</p>" ?>
-            <label for="fecha_alta">Fecha alta:</label><br />
+            <label for="fecha_alta">Fecha alta: (YYYY-MM-DD)</label>
             <?php if (isset($errores["error_fecha_alta"])) echo "<p class='error'> {$errores['error_fecha_alta']}</p>" ?>
-            <input type="text" name="fecha_alta" id="fecha_alta"><br />
+            <input type="text" name="fecha_alta" id="fecha_alta">
 
-            <label for="fecha_baja">Fecha baja:</label><br />
+            <label for="fecha_baja">Fecha baja: (YYYY-MM-DD)</label>
             <?php if (isset($errores["error_fecha_baja"])) echo "<p class='error'> {$errores['error_fecha_baja']}</p>" ?>
-            <input type="text" name="fecha_baja" id="fecha_baja"><br />
+            <input type="text" name="fecha_baja" id="fecha_baja">
 
-            <label for="cantidad">Cantidad base:</label><br />
+            <label for="cantidad">Cantidad base:</label>
             <?php if (isset($errores["error_cantidad"])) echo "<p class='error'> {$errores['error_cantidad']}</p>" ?>
-            <input type="text" name="cantidad" id="cantidad"><br />
+            <input type="text" name="cantidad" id="cantidad">
 
-            <label for="usuario">Nombre usuario:</label><br />
+            <label for="usuario">Nombre usuario:</label>
             <?php if (isset($errores["error_usuario"])) echo "<p class='error'> {$errores['error_usuario']}</p>" ?>
-            <input type="text" name="usuario" id="usuario"><br />
+            <input type="text" name="usuario" id="usuario">
 
-            <label for="email">Email:</label><br />
+            <label for="email">Email:</label>
             <?php if (isset($errores["error_email"])) echo "<p class='error'> {$errores['error_email']}</p>" ?>
-            <input type="text" name="email" id="email"><br />
+            <input type="text" name="email" id="email">
 
-            <label for="imagen">Imagen: </label><br />
+            <label for="imagen">Imagen: </label>
             <?php if (isset($errores["error_imagen"])) echo "<p class='error'> {$errores['error_imagen']}</p>" ?>
-            <input type="file" name="imagen" id="imagen" accept=".jpg,.jpeg,.png"><br />
+            <input type="file" name="imagen" id="imagen" accept=".jpg,.jpeg,.png">
 
-            <label for="tarifa">Tarifa base:</label><br />
-            <input type="text" name="tarifa" id="tarifa"><br />
+            <label for="tarifa">Tarifa base:</label>
+            <input type="text" name="tarifa" id="tarifa">
 
-            <label for="max_rebaja">Máxima rebaja: (% en 24 meses aplicables)</label><br />
-            <input type="text" name="max_rebaja" id="max_rebaja"><br />
+            <label for="max_rebaja">Máxima rebaja: (% en 24 meses aplicables)</label>
+            <input type="text" name="max_rebaja" id="max_rebaja">
 
             <input type="submit" value="Enviar">
         </form>

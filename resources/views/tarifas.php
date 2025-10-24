@@ -74,20 +74,29 @@ if (count($tarifas) === 0) {
         function mostrar_tarifa(array $tarifas_indice, int $indice_tarifa): void
         {
             $precio_meses = $tarifas_indice[$indice_tarifa]['precio_meses'];
-            $ruta_imagen = "/imgs/usuario/{$tarifas_indice[$indice_tarifa]['imagen']}";
-            echo "<div class='datos-usuario'>";
-
-            echo "<img src='{$ruta_imagen}' alt='imagen-tarifa'><br/>";
-            echo "Nombre de usuario: " . $tarifas_indice[$indice_tarifa]["nombre_usuario"] . "<br/>";
-            echo "Email de usuario: " . $tarifas_indice[$indice_tarifa]["email"] . "<br/>";
-            echo "Código: " . $tarifas_indice[$indice_tarifa]["codigo"] . "<br/>";
-            echo "Fecha de alta: " . $tarifas_indice[$indice_tarifa]["fecha_alta"] . "<br/>";
-            echo "Fecha de baja: " . $tarifas_indice[$indice_tarifa]["fecha_baja"] . "<br/>";
-            echo "Tarifa base: " . $tarifas_indice[$indice_tarifa]["tarifa"] . "€<br/>";
-            echo "Máxima rebaja: " . $tarifas_indice[$indice_tarifa]["max_rebaja"] . "%<br/>";
+            if ($tarifas_indice[$indice_tarifa]['imagen'] != "") {
+                $ruta_imagen = "/imgs/usuario/{$tarifas_indice[$indice_tarifa]['imagen']}";
+                echo "<img src='{$ruta_imagen}' alt='imagen-tarifa'><br/>";
+            }
+        ?>
+            <div class='datos-usuario'>
+                <?php
+                echo "Nombre de usuario: " . $tarifas_indice[$indice_tarifa]["nombre_usuario"] . "<br/>";
+                echo "Email de usuario: " . $tarifas_indice[$indice_tarifa]["email"] . "<br/>";
+                ?>
+            </div>
+            <div class='datos-tarifa'>
+                <?php
+                echo "Código: " . $tarifas_indice[$indice_tarifa]["codigo"] . "<br/>";
+                echo "Fecha de alta: " . $tarifas_indice[$indice_tarifa]["fecha_alta"] . "<br/>";
+                echo "Fecha de baja: " . $tarifas_indice[$indice_tarifa]["fecha_baja"] . "<br/>";
+                echo "Tarifa base: " . $tarifas_indice[$indice_tarifa]["tarifa"] . "€<br/>";
+                echo "Máxima rebaja: " . $tarifas_indice[$indice_tarifa]["max_rebaja"] . "%<br/>";
+                ?>
+            </div>
+        <?php
             echo "<h4>Precio por mes:</h4>";
             echo '<table style="border: 2px solid black; border-collapse: collapse;">';
-
             echo '<tr>';
             foreach ($precio_meses as $indice => $precio_mes) {
                 echo '<th style="background-color: #f2f2f2; border: 1px solid black; padding: 5px;">' . $indice . '</th>';

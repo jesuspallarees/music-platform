@@ -10,11 +10,13 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
     <main>
         <?php if ($presupuesto === null): ?>
-            <form action="" method="get">
-                <label for="presupuesto">¿Cuánto quieres pagar por mes? (€)</label><br>
-                <input type="text" id="presupuesto" name="presupuesto" required>
-                <button type="submit">Buscar tarifas</button>
-            </form>
+            <div class="popup">
+                <form action="" method="get">
+                    <label for="presupuesto">¿Cuánto quieres pagar por mes? (€)</label><br>
+                    <input type="text" id="presupuesto" name="presupuesto" required>
+                    <button type="submit">Buscar tarifas</button>
+                </form>
+            </div>
         <?php else: ?>
             <?php
             $tarifas = leer_json($ruta_json_tarifas);
@@ -45,7 +47,7 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
                     $min_meses = $tarifas_aptas[0]['meses'];
                     $max_meses = $tarifas_aptas[count($tarifas_aptas) - 1]['meses'];
 
-                    
+
                     echo "<h3>Tarifa usuario: $nombre_usuario &lt;$email&gt; (Código: $codigo)</h3>";
                     echo "<p>Tarifa mínima: $min_meses meses<br>Mejor tarifa (máximo meses): $max_meses meses</p>";
 
@@ -72,4 +74,5 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
     </main>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>
 </body>
+
 </html>

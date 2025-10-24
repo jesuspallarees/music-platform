@@ -1,5 +1,5 @@
 <header>
-    <img src="/imgs/logo-mustreaming.png" alt="logo-mustreaming">
+    <a href="/"><img src="/imgs/logo-mustreaming.png" alt="logo-mustreaming"></a>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'navigation.php'; ?>
     <?php
     if (preg_match('/^\/tarifas.*$/', $_SERVER["REQUEST_URI"])) {
