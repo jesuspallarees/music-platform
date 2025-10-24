@@ -1,23 +1,30 @@
 <?php
-$tarifa_int = 1;
 $tarifas = leer_json($ruta_json_tarifas);
 $tarifas_indice = [];
+$hay_tarifas = true;
+$raiz_tarifa = false;
 
-foreach ($tarifas as $indice => $tarifa) {
-    $tarifas_indice[$indice + 1] = $tarifa;
-}
-
-if (isset($_GET["tarifa"])) {
-    $tarifa_int = intval($_GET["tarifa"]);
-    if ($tarifa_int < 1) {
-        $tarifa_int = count($tarifas_indice);
-    } else {
-        $tarifa_int;
+if (count($tarifas) === 0) {
+    $hay_tarifas = false;
+} else {
+    foreach ($tarifas as $indice => $tarifa) {
+        $tarifas_indice[$indice + 1] = $tarifa;
     }
-    if ($tarifa_int > count($tarifas_indice)) {
-        $tarifa_int = 1;
+
+    if (isset($_GET["tarifa"])) {
+        $tarifa_int = intval($_GET["tarifa"]);
+        if ($tarifa_int < 1) {
+            $tarifa_int = count($tarifas_indice);
+        } else {
+            $tarifa_int;
+        }
+        if ($tarifa_int > count($tarifas_indice)) {
+            $tarifa_int = 1;
+        } else {
+            $tarifa_int;
+        }
     } else {
-        $tarifa_int;
+        $raiz_tarifa = true;
     }
 }
 ?>
@@ -38,7 +45,8 @@ if (isset($_GET["tarifa"])) {
                                                                 echo $tarifa_int - 1;
                                                             }
                                                             ?>">
-                <input type="submit" value="Anterior">
+                <input type="submit" value="Anterior" <?php echo !$hay_tarifas ? 'disabled' : ''; ?>>
+
             </form>
 
             <form method="get">
@@ -49,14 +57,19 @@ if (isset($_GET["tarifa"])) {
                                                                 echo $tarifa_int + 1;
                                                             }
                                                             ?>">
-                <input type="submit" value="Siguiente">
+                <input type="submit" value="Siguiente" <?php echo !$hay_tarifas ? 'disabled' : ''; ?>>
             </form>
 
         </div>
         <?php
-
-        echo "<h3>Tarifa {$tarifa_int}</h3>";
-        mostrar_tarifa($tarifas_indice, $tarifa_int);
+        if (!$hay_tarifas && $raiz_tarifa || !$hay_tarifas && !$raiz_tarifa) {
+            echo "<h2>No se ha encontrado ninguna tarifa</h2>";
+        } else if ($hay_tarifas && $raiz_tarifa) {
+            echo "<h2>Utilice la botonera para navegar entre tarifas</h2>";
+        } else {
+            echo "<h3>Tarifa {$tarifa_int}</h3>";
+            mostrar_tarifa($tarifas_indice, $tarifa_int);
+        }
 
         function mostrar_tarifa(array $tarifas_indice, int $indice_tarifa): void
         {

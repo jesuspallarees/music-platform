@@ -9,8 +9,6 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
 <body>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
     <main>
-        <h1>Generador de Tarifas de Música</h1>
-
         <?php if ($presupuesto === null): ?>
             <form action="" method="get">
                 <label for="presupuesto">¿Cuánto quieres pagar por mes? (€)</label><br>
@@ -47,17 +45,18 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
                     $min_meses = $tarifas_aptas[0]['meses'];
                     $max_meses = $tarifas_aptas[count($tarifas_aptas) - 1]['meses'];
 
+                    
                     echo "<h3>Tarifa usuario: $nombre_usuario &lt;$email&gt; (Código: $codigo)</h3>";
                     echo "<p>Tarifa mínima: $min_meses meses<br>Mejor tarifa (máximo meses): $max_meses meses</p>";
 
                     echo '<table>';
                     echo '<thead><tr><th>Meses contratados</th><th>Precio por mes (€)</th><th>Total a pagar (€)</th></tr></thead><tbody>';
 
-                    foreach ($tarifas_aptas as $tar) {
+                    foreach ($tarifas_aptas as $tarifa) {
                         echo '<tr>';
-                        echo "<td>{$tar['meses']}</td>";
-                        echo "<td>" . number_format($tar['precio_mes'], 2) . "</td>";
-                        echo "<td>" . number_format($tar['total'], 2) . "</td>";
+                        echo "<td>{$tarifa['meses']}</td>";
+                        echo "<td>" . number_format($tarifa['precio_mes'], 2) . "</td>";
+                        echo "<td>" . number_format($tarifa['total'], 2) . "</td>";
                         echo '</tr>';
                     }
                     echo '</tbody></table>';

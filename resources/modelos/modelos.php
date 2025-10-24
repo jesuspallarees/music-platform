@@ -24,15 +24,3 @@ class Tarifa {
         $this->precio_meses = $precio_meses;
     }
 }
-
-class Articulo {
-    public $codigo;
-    public $nombre;
-    public $precio;
-
-    public function __construct($codigo, $nombre, $precio) {
-        $this->codigo = $codigo;
-        $this->nombre = $nombre;
-        $this->precio = $precio;
-    }
-}

@@ -5,8 +5,9 @@
     if (count($articulos) != 0) {
         foreach ($articulos as $articulo) {
             $imagen = $articulo['imagen'];
-            $titulo = $articulo['codigo'];
-            $contenido = $articulo['nombre_usuario'];
+            $codigo = $articulo['codigo'];
+            $autor = $articulo['nombre_usuario'];
+            $email = $articulo['email'];
             
             include 'article.php';
         }
