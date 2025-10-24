@@ -49,7 +49,7 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
 
 
                     echo "<h3>Tarifa usuario: $nombre_usuario &lt;$email&gt; (Código: $codigo)</h3>";
-                    echo "<p>Tarifa mínima: $min_meses meses<br>Mejor tarifa (máximo meses): $max_meses meses</p>";
+                    echo "<p id='generador'>Tarifa mínima: $min_meses meses<br>Mejor tarifa (máximo meses): $max_meses meses</p>";
 
                     echo '<table>';
                     echo '<thead><tr><th>Meses contratados</th><th>Precio por mes (€)</th><th>Total a pagar (€)</th></tr></thead><tbody>';

@@ -10,7 +10,7 @@
 body#home {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px 1fr 1fr 1fr 250px; 
   grid-template-areas:
     "hd hd hd hd hd"
     "as ma ma ma ma"
@@ -19,12 +19,13 @@ body#home {
     "fo fo fo fo fo";
   gap: 0;
   background-color: #222;
+  min-height: 100vh;
 }
 
 body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px 1fr 1fr 250px; 
   grid-template-areas:
     "hd hd hd hd"
     "ma ma ma ma"
@@ -32,11 +33,13 @@ body {
     "fo fo fo fo";
   gap: 0;
   background-color: #222;
+  min-height: 100vh;
 }
 
 header {
   grid-area: hd;
   background: #222;
+  overflow: hidden;
 }
 
 nav {
@@ -49,6 +52,9 @@ nav {
 aside {
   grid-area: as;
   background: #2a2a2a;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 1rem;
 }
 
 main {
@@ -58,6 +64,9 @@ main {
   justify-content: center;
   align-items: center;
   background: #323232;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 2rem;
 }
 
 main#home {
@@ -71,6 +80,11 @@ main#home {
 footer {
   grid-area: fo;
   background: #222;
+  overflow: hidden;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form#alta {
@@ -89,6 +103,17 @@ input[type="text"] {
   border: 1px solid #ccc;
 }
 
+button {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #432b72;
+  color: #5932a7;
+  font-size: medium;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+}
+
 input[type="file"] {
   padding: 5px;
   border-radius: 10px;
@@ -99,7 +124,8 @@ input[type="submit"] {
   border-radius: 15px;
   background-color: #432b72;
   color: #5932a7;
-  font-size: medium;
+  align-self: center;
+  font-size: large;
   border: none;
   cursor: pointer;
   width: 100px;
@@ -147,14 +173,6 @@ img {
   border-radius: 20px;
 }
 
-table {
-}
-
-tr {
-}
-
-td {
-}
 .error {
   color: crimson;
   background-color: lightcoral;
@@ -178,11 +196,14 @@ td {
 .popup {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding: 30px;
   background-color: #fff;
-  max-height: 15vh;
   border-radius: 25px;
+  height: 14vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 h1,
@@ -194,8 +215,9 @@ h6 {
   background-color: #432b72;
   color: #5932a7;
   border-radius: 20px;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .botonera {
@@ -232,4 +254,46 @@ h6 {
   padding: 20px;
   border-radius: 15px;
   width: 350px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #222;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border: 1px solid #222;
+}
+
+th {
+  font-weight: 700;
+  background-color: #432b72;
+  color: #5932a7;
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #222;
+}
+
+p#generador {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: #fff;
+}
+
+label {
+  font-weight: 600;
+  color: #222;
 }

@@ -96,7 +96,7 @@ if (count($tarifas) === 0) {
             </div>
         <?php
             echo "<h4>Precio por mes:</h4>";
-            echo '<table style="border: 2px solid black; border-collapse: collapse;">';
+            echo '<table>';
             echo '<tr>';
             foreach ($precio_meses as $indice => $precio_mes) {
                 echo '<th style="background-color: #f2f2f2; border: 1px solid black; padding: 5px;">' . $indice . '</th>';
@@ -104,7 +104,7 @@ if (count($tarifas) === 0) {
             echo '</tr>';
             echo '<tr>';
             foreach ($precio_meses as $indice => $precio_mes) {
-                echo '<td style="border: 1px solid black; padding: 5px; text-align: center;">' . $precio_mes . '</td>';
+                echo '<td>' . $precio_mes . '</td>';
             }
             echo '</tr>';
 
