@@ -1,13 +1,12 @@
 <main id="home">
     <?php
-    $ruta_json_articulos = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . "bbdd" . DIRECTORY_SEPARATOR . "articulos.json";
-    $articulos = leer_json($ruta_json_articulos);
+    $articulos = leer_json($ruta_json_tarifas);
 
     if (count($articulos) != 0) {
         foreach ($articulos as $articulo) {
             $imagen = $articulo['imagen'];
-            $titulo = $articulo['titulo'];
-            $contenido = $articulo['contenido'];
+            $titulo = $articulo['codigo'];
+            $contenido = $articulo['nombre_usuario'];
             
             include 'article.php';
         }
