@@ -9,7 +9,7 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
 <body>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'header.php' ?>
     <main>
-        <?php if ($presupuesto === null): ?>
+        <?php if ($presupuesto === null){ ?>
             <div class="popup">
                 <form action="" method="get">
                     <label for="presupuesto">¿Cuánto quieres pagar por mes? (€)</label><br>
@@ -17,7 +17,7 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
                     <button type="submit">Buscar tarifas</button>
                 </form>
             </div>
-        <?php else: ?>
+        <?php } else{ ?>
             <?php
             $tarifas = leer_json($ruta_json_tarifas);
             $hay_tarifas = false;
@@ -70,7 +70,7 @@ $presupuesto = isset($_GET['presupuesto']) ? floatval($_GET['presupuesto']) : nu
             }
             ?>
             <button><a href="/generador">Volver</a></button>
-        <?php endif; ?>
+        <?php } ?>
     </main>
     <?php require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'footer.php' ?>
 </body>

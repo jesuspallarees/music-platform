@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errores["error_codigo"] = "El código debe seguir la siguiente estructura: cod-[4-5 números]";
     }
 
-    if (!isset($fecha_alta) && strtotime($fecha_alta) !== false) {
+    if (!isset($fecha_alta) || strtotime($fecha_alta) !== false) {
         $errores["error_fecha_alta"] = "Debe de cumplimentar la fecha de alta de forma correcta: 2023-10-21";
     }
 
-    if (!isset($fecha_baja) && strtotime($fecha_baja) !== false) {
+    if (!isset($fecha_baja) || strtotime($fecha_baja) !== false) {
         $errores["error_fecha_baja"] = "Debe de cumplimentar la fecha de baja de forma correcta: 2023-10-21";
     }
 
